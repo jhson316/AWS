@@ -19,7 +19,7 @@ resource "aws_instance" "app_server" {
   ami           = "ami-0eb218869d3d2d7e7"
   # ami           = "ami-830c94e3"
   instance_type = "t2.micro"
-  key_name = aws_key_pair.TEST
+  key_name = aws_key_pair.TEST.key_name
 
   tags = {
     Name = "ExampleAppServerInstance"
