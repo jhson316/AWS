@@ -36,5 +36,5 @@ resource "aws_default_vpc" "test" {
   
 }
 
-resource "aws_default_security_group" "default" {
-}
+# resource "aws_default_security_group" "default" {
+# }

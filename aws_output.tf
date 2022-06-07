@@ -16,10 +16,10 @@ output "vpc_id" {
   value = aws_default_vpc.test.id
 }
 
-output "security_group_id" {
-  value = aws_default_security_group.default.id
-}
+# output "security_group_id" {
+#   value = aws_default_security_group.default.id
+# }
 
-output "security_group_vpc_id" {
-  value = aws_default_security_group.default.vpc_id
-}
+# output "security_group_vpc_id" {
+#   value = aws_default_security_group.default.vpc_id
+# }
