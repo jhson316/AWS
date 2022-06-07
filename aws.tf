@@ -25,3 +25,7 @@ resource "aws_instance" "app_server" {
     Name = "ExampleAppServerInstance"
   }
 }
+
+resource "aws_key_pair" "TEST" {
+  key_name = "TEST"
+}
