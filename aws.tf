@@ -11,11 +11,13 @@ terraform {
 
 provider "aws" {
   profile = "default"
-  region  = "us-west-2"
+  # region  = "us-west-2"
+  region  = "ap-northeast-2"
 }
 
 resource "aws_instance" "app_server" {
-  ami           = "ami-830c94e3"
+  ami           = "ami-0eb218869d3d2d7e7"
+  # ami           = "ami-830c94e3"
   instance_type = "t2.micro"
 #  subnet_id = "subnet-0658db61e915a5afe"
 
