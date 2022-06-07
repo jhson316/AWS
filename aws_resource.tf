@@ -35,3 +35,6 @@ resource "aws_instance" "app_server" {
 resource "aws_default_vpc" "test" {
   
 }
+
+resource "aws_default_security_group" "default" {
+}
