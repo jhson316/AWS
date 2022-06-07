@@ -13,5 +13,5 @@ output "account_id" {
 # }
 
 output "vpc_id" {
-  value = aws_default_vpc.vpc_id  
+  value = aws_default_vpc.test.id
 }
