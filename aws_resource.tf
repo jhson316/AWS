@@ -40,7 +40,7 @@ resource "aws_default_security_group" "default" {
   
   ingress {
     # protocol  = -1
-    protocol  = tcp
+    protocol  = "tcp"
     # self      = true
     cidr_blocks = ["0.0.0.0/0"]
     from_port = 0
