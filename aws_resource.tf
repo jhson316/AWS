@@ -38,6 +38,7 @@ resource "aws_default_vpc" "default_vpc" {
 resource "aws_default_security_group" "default" {
   vpc_id = aws_default_vpc.default_vpc.id
   ingress = {
+    cidr_blocks = [0.0.0.0/0]
     protocol = -1
     from_port = 0
     to_port = 0
