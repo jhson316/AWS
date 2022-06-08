@@ -13,7 +13,7 @@ output "account_id" {
 # }
 
 output "vpc_id" {
-  value = aws_default_vpc.test.id
+  value = aws_default_vpc.default_vpc.id
 }
 
 # output "security_group_id" {

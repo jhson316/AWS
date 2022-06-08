@@ -17,7 +17,6 @@ provider "aws" {
 
 resource "aws_instance" "app_server" {
   ami           = "ami-0eb218869d3d2d7e7"
-  # ami           = "ami-830c94e3"
   instance_type = "t2.micro"
   key_name = "TEST"
   # key_name = aws_key_pair.TEST.key_name
@@ -32,10 +31,15 @@ resource "aws_instance" "app_server" {
 #   public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCQDrZjSwZW+H7mfgDxmBIaXtoWuCUvgpnXfBYOR7+da8xJc8gv51xF5qgYJE1n38IHD7rAZD3cxpq4nD9XMZ+Dg8K0ngK6Zqi88bf3BR62g8CQ1zjCUpCtrmMffgt9Fd4mTLXhW6GOi1pSOekyEgu7K/ewO/CcQVvGvPxVp7BgMxDlvQbaVuJ+sDoyLnv20NEnkLxLr9NILtdP3bpT25c8altuZ68mLH/HCjYxyyL5X/bse0cbgjPkk69+8CQMpbR6C3HdXzt1TnPwmFtjpVHiHfAqlK3aoeI5vwoBIDuXEoQxYldSrTiG+u0BAk2k57ZMkQZ3sVNBkwNK5UXb9yaf"
 # }
 
-resource "aws_default_vpc" "test" {
+resource "aws_default_vpc" "default_vpc" {
   
 }
 
 resource "aws_default_security_group" "default" {
-  vpc_id = aws_default_vpc.test.id
+  vpc_id = aws_default_vpc.default_vpc.id
+  ingress = {
+    protocol = -1
+    from_port = 0
+    to_port = 0
+  }
 }
