@@ -6,19 +6,19 @@ resource "aws_vpc" "VPC_test" {
   }
 }
 
-resource "aws_subnet" "Pub_sub1" {
+resource "aws_subnet" "pub_sub1" {
   vpc_id     = aws_vpc.VPC_test.id
   cidr_block = "193.17.0.0/24"
   tags = {
-    "Name" = "VPC Test Pub_sub1"
+    "Name" = "VPC Test pub_sub1"
   }
 }
 
-resource "aws_subnet" "Pub_sub2" {
+resource "aws_subnet" "pub_sub2" {
   vpc_id     = aws_vpc.VPC_test.id
   cidr_block = "193.17.1.0/24"
   tags = {
-    "Name" = "VPC Test Pub_sub2"
+    "Name" = "VPC Test pub_sub2"
   }
 }
 
@@ -57,7 +57,7 @@ resource "aws_eip" "ngw_ip" {
 
 resource "aws_nat_gateway" "ngw" {
   allocation_id = aws_eip.ngw_ip.id
-  subnet_id     = aws_subnet.Pub_sub1.id
+  subnet_id     = aws_subnet.pub_sub1.id
 
   tags = {
     Name = "NAT Gateway"
@@ -75,4 +75,14 @@ resource "aws_default_route_table" "public_rt" {
   tags = {
     Name = "public route table"
   }
+}
+
+resource "aws_route_table_association" "public_rta_a" {
+    subnet_id      = aws_subnet.pub_sub1.id
+    route_table_id = aws_default_route_table.public_rt.id
+}
+
+resource "aws_route_table_association" "public_rta_b" {
+    subnet_id      = aws_subnet.pub_sub2.id
+    route_table_id = aws_default_route_table.public_rt.id
 }
