@@ -7,3 +7,9 @@
 
 # AWS Resource List
 https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/default_security_group
+
+# AWS VCP Test
+https://gurumee92.tistory.com/240
+https://blog.outsider.ne.kr/1301
+https://bosungtea9416.tistory.com/11
+https://sftth.tistory.com/34
