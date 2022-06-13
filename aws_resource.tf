@@ -12,7 +12,7 @@ terraform {
 provider "aws" {
   profile = "default"
   # region  = "us-west-2"
-  region  = "ap-northeast-2"
+  region = "ap-northeast-2"
 }
 
 # resource "aws_instance" "app_server" {
@@ -32,12 +32,12 @@ provider "aws" {
 # # }
 
 # resource "aws_default_vpc" "default_vpc" {
-  
+
 # }
 
 # resource "aws_default_security_group" "default" {
 #   vpc_id = aws_default_vpc.default_vpc.id
-  
+
 #   ingress {
 #     # protocol  = -1
 #     protocol  = "tcp"
