@@ -24,7 +24,7 @@ resource "aws_subnet" "pub_sub2" {
   }
 }
 
-resource "aws_subnet" "Pri_sub1" {
+resource "aws_subnet" "ri_sub1" {
   vpc_id     = aws_vpc.VPC_test.id
   cidr_block = "193.17.10.0/24"
   tags = {
@@ -84,19 +84,29 @@ resource "aws_default_route_table" "public_rt" {
 
 # Subnet(pub_sub1, pub_sub2)에 Default Gateway 라우팅 매칭
 resource "aws_route_table_association" "public_rta_a" {
-    subnet_id      = aws_subnet.pub_sub1.id
-    route_table_id = aws_default_route_table.public_rt.id
+  subnet_id      = aws_subnet.pub_sub1.id
+  route_table_id = aws_default_route_table.public_rt.id
 }
 
 resource "aws_route_table_association" "public_rta_b" {
-    subnet_id      = aws_subnet.pub_sub2.id
-    route_table_id = aws_default_route_table.public_rt.id
+  subnet_id      = aws_subnet.pub_sub2.id
+  route_table_id = aws_default_route_table.public_rt.id
 }
 
 # 내부망 라우팅 설정
 resource "aws_route_table" "private_rt" {
-    vpc_id = aws_vpc.VPC_test.id
-    tags = {
-        Name = "private route table"
-    }
+  vpc_id = aws_vpc.VPC_test.id
+  tags = {
+    Name = "private route table"
+  }
+}
+
+resource "aws_route_table_association" "private_rta_a" {
+  subnet_id      = aws_subnet.pri_sub1.id
+  route_table_id = aws_route_table.private_rt.id
+}
+
+resource "aws_route_table_association" "private_rta_b" {
+  subnet_id      = aws_subnet.pri_sub2.id
+  route_table_id = aws_route_table.private_rt.id
 }
