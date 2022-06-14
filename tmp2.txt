@@ -1,7 +1,0 @@
-sed -i "s/\"pri_sub2"
-sed -i "s/\"ngw_ip"
-sed -i "s/\"ngw"
-sed -i "s/\"private_rt"
-sed -i "s/\"private_rt_route"
-sed -i "s/\"private_rta_a"
-sed -i "s/\"private_rta_b"

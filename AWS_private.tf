@@ -27,7 +27,7 @@ resource "aws_eip" "ngw_ip" {
 resource "aws_nat_gateway" "ngw" {
   allocation_id = aws_eip.ngw_ip.id
   subnet_id     = aws_subnet.pri_sub1.id
-    tags = {
+  tags = {
     Name = "NAT Gateway"
   }
 }
@@ -36,7 +36,7 @@ resource "aws_nat_gateway" "ngw" {
 resource "aws_route_table" "private_rt" {
   vpc_id = aws_vpc.VPC_test.id
   route {
-    cidr_block = "0.0.0.0/0"
+    cidr_block     = "0.0.0.0/0"
     nat_gateway_id = aws_nat_gateway.ngw.id
   }
   tags = {

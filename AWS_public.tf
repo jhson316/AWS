@@ -16,14 +16,6 @@ resource "aws_subnet" "pub_sub2" {
 }
 
 
-# Internet gateway 생성
-resource "aws_internet_gateway" "igw" {
-  vpc_id = aws_vpc.VPC_test.id
-
-  tags = {
-    Name = "Internet Gateway"
-  }
-}
 
 # Public망 Default GW 라우팅 설정
 resource "aws_default_route_table" "public_rt" {
