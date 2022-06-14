@@ -1,0 +1,7 @@
+pri_sub2
+ngw_ip
+ngw
+private_rt
+private_rt_route
+private_rta_a
+private_rta_b

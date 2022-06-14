@@ -16,13 +16,6 @@ resource "aws_subnet" "pub_sub2" {
 }
 
 
-
-
-
-
-
-
-
 # Internet gateway 생성
 resource "aws_internet_gateway" "igw" {
   vpc_id = aws_vpc.VPC_test.id
