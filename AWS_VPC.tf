@@ -33,7 +33,7 @@ resource "aws_default_network_acl" "vpc_network_acl" {
         action     = "allow"
         cidr_block = "0.0.0.0/0"
         from_port  = 0
-        to_port    = 65534
+        to_port    = 0
     }
     tags = {
         Name = "network acl"
