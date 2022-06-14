@@ -15,6 +15,14 @@ resource "aws_subnet" "pub_sub2" {
   }
 }
 
+
+
+
+
+
+
+
+
 # Internet gateway 생성
 resource "aws_internet_gateway" "igw" {
   vpc_id = aws_vpc.VPC_test.id
@@ -27,18 +35,16 @@ resource "aws_internet_gateway" "igw" {
 # Public망 Default GW 라우팅 설정
 resource "aws_default_route_table" "public_rt" {
   default_route_table_id = aws_vpc.VPC_test.default_route_table_id
-
   route {
     cidr_block = "0.0.0.0/0"
     gateway_id = aws_internet_gateway.igw.id
   }
-
   tags = {
     Name = "public route table"
   }
 }
 
-# Public망 Subnet에 Default Gateway 라우팅 매칭
+# Public망 Subnet에 Default Gateway 라우팅 매핑
 resource "aws_route_table_association" "public_rta_a" {
   subnet_id      = aws_subnet.pub_sub1.id
   route_table_id = aws_default_route_table.public_rt.id
