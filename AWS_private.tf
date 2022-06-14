@@ -3,7 +3,7 @@ resource "aws_subnet" "pri_sub1" {
   vpc_id     = aws_vpc.VPC_test.id
   cidr_block = "193.17.10.0/24"
   tags = {
-    "Name" = "VPC Test pri_sub1"
+    Name = "VPC Test pri_sub1"
   }
 }
 
@@ -11,7 +11,7 @@ resource "aws_subnet" "pri_sub2" {
   vpc_id     = aws_vpc.VPC_test.id
   cidr_block = "193.17.11.0/24"
   tags = {
-    "Name" = "VPC Test pri_sub2"
+    Name = "VPC Test pri_sub2"
   }
 }
 
