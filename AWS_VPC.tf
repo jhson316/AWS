@@ -28,7 +28,7 @@ resource "aws_default_network_acl" "vpc_network_acl" {
         to_port    = 22
     }
     egress {
-        protocol   = "all"
+        protocol   = "-1"
         rule_no    = 100
         action     = "allow"
         cidr_block = "0.0.0.0/0"
