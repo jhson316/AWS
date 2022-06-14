@@ -35,16 +35,20 @@ resource "aws_nat_gateway" "ngw" {
 # Private망 라우팅 생성
 resource "aws_route_table" "private_rt" {
   vpc_id = aws_vpc.VPC_test.id
+  route {
+    cidr_block = "0.0.0.0/0"
+    nat_gateway_id = aws_nat_gateway.ngw.id
+  }
   tags = {
     Name = "private route table"
   }
 }
 # Private망 라우팅 설정??
-resource "aws_route" "private_rt_route" {
-    route_table_id              = aws_route_table.private_rt.id
-    destination_cidr_block      = "0.0.0.0/0"
-    nat_gateway_id              = aws_nat_gateway.ngw.id
-}
+# resource "aws_route" "private_rt_route" {
+#     route_table_id              = aws_route_table.private_rt.id
+#     destination_cidr_block      = "0.0.0.0/0"
+#     nat_gateway_id              = aws_nat_gateway.ngw.id
+# }
 
 # Private망 Subnet에 Default Gateway 라우팅 매칭
 resource "aws_route_table_association" "private_rta_a" {
