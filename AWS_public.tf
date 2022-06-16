@@ -9,7 +9,7 @@ resource "aws_subnet" "pub_sub1" {
   }
 }
 
-resource "aws_route_table" "pub_route_table" {
+resource "aws_route_table" "pub_route" {
   vpc_id = aws_vpc.VPC_test.id
   route {
     cidr_block = "0.0.0.0/0"
@@ -18,6 +18,11 @@ resource "aws_route_table" "pub_route_table" {
   tags = {
     Name = "VPC TEST Public Route Table"
   }
+}
+
+resource "aws_route_table_association" "pub_route_attach" {
+  subnet_id      = aws_subnet.pub_sub1.id
+  route_table_id = aws_route_table.pub_route.id
 }
 
 # resource "aws_subnet" "pub_sub2" {
