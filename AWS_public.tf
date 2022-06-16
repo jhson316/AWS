@@ -2,25 +2,21 @@
 resource "aws_subnet" "pub_sub1" {
   vpc_id     = aws_vpc.VPC_test.id
   cidr_block = "193.17.0.0/24"
-  route {
-    cidr_block = "0.0.0.0/0"
-    gateway_id = aws_internet_gateway.igw.id
-  }
   tags = {
     Name = "VPC Test pub_sub1"
   }
 }
 
-# resource "aws_route_table" "pub_route_table" {
-#   vpc_id = aws_vpc.VPC_test.id
-#   route {
-#     cidr_block = "0.0.0.0/0"
-#     gateway_id = aws_internet_gateway.igw.id
-#   }
-#   tags = {
-#     Name = "Public Route Table"
-#   }
-# }
+resource "aws_route_table" "pub_route_table" {
+  vpc_id = aws_vpc.VPC_test.id
+  route {
+    cidr_block = "0.0.0.0/0"
+    gateway_id = aws_internet_gateway.igw.id
+  }
+  tags = {
+    Name = "Public Route Table"
+  }
+}
 
 # resource "aws_subnet" "pub_sub2" {
 #   vpc_id     = aws_vpc.VPC_test.id
