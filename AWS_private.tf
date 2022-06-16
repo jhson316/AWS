@@ -15,17 +15,9 @@
 #   }
 # }
 
-# # NAT gateway 생성을 위한 EIP(Elastic IP) 생성
-# resource "aws_eip" "ngw_ip" {
-#   vpc = true
-#   lifecycle {
-#     create_before_destroy = true
-#   }
-# }
-
 # # NAT gateway 생성 및 EIP와 매핑
 # resource "aws_nat_gateway" "ngw" {
-#   allocation_id = aws_eip.ngw_ip.id
+#   allocation_id = aws_eip.eip.id
 #   subnet_id     = aws_subnet.pri_sub1.id
 #   tags = {
 #     Name = "NAT Gateway"

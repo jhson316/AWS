@@ -16,6 +16,19 @@ resource "aws_internet_gateway" "igw" {
   }
 }
 
+# EIP(Elastic IP) 생성
+resource "aws_eip" "eip" {
+  vpc = true
+  lifecycle {
+    create_before_destroy = true
+  }
+}
+
+resource "aws_eip_association" "eip_assoc" {
+  instance_id   = aws_instance.app_server.id
+  allocation_id = aws_eip.eip.id
+}
+
 # network acl
 resource "aws_default_network_acl" "vpc_network_acl" {
     default_network_acl_id = aws_vpc.VPC_test.default_network_acl_id
