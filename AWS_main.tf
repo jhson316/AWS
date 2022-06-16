@@ -22,7 +22,7 @@ resource "aws_instance" "app_server" {
   # key_name = aws_key_pair.TEST.key_name
   subnet_id = aws_subnet.pub_sub1.id
   availability_zone = var.zone
-  security_groups = aws_security_group.manual_sg
+  security_groups = aws_security_group.manual_sg.id
 
   tags = {
     Name = "Test Instance"
