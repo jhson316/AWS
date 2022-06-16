@@ -105,6 +105,6 @@ resource "aws_security_group" "manual_sg" {
     }
 
     tags = {
-        Name = "inhouse_sg"
+        Name = "manual_sg"
     }
 }
