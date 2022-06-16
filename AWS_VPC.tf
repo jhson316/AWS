@@ -79,9 +79,9 @@ resource "aws_default_security_group" "default_sg" {
 }
 
 # 
-resource "aws_security_group" "inhouse_sg" {
-    name        = "pinhouse_sg"
-    description = "security group for inhouse"
+resource "aws_security_group" "manual_sg" {
+    name        = "manual_sg"
+    description = "manual security group"
     vpc_id      = aws_vpc.VPC_test.id
 
     ingress {
