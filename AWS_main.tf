@@ -21,7 +21,7 @@ resource "aws_instance" "app_server" {
   key_name = "TEST"
   # key_name = aws_key_pair.TEST.key_name
   subnet_id = aws_subnet.pub_sub1.id
-  availability_zone = "ap-northeast-2a"
+  availability_zone = var.zone
 
   tags = {
     Name = "Test Instance"

@@ -1,7 +1,7 @@
 # Public망 Subnet 생성
 resource "aws_subnet" "pub_sub1" {
   vpc_id     = aws_vpc.VPC_test.id
-  availability_zone = aws_instance.app_server.availability_zone
+  availability_zone = var.zone
   # availability_zone = "ap-northeast-2a"
   cidr_block = "193.17.0.0/24"
   tags = {
