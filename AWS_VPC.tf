@@ -48,7 +48,7 @@ resource "aws_default_security_group" "default_sg" {
         protocol    = "tcp"
         from_port = 0
         to_port   = 65535
-        cidr_blocks = [aws_vpc.vpc.cidr_block]
+        cidr_blocks = [aws_vpc.VPC_test.cidr_block]
     }
 
     egress {
