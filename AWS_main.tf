@@ -15,17 +15,17 @@ provider "aws" {
   region = "ap-northeast-2"
 }
 
-# resource "aws_instance" "app_server" {
-#   ami           = "ami-0eb218869d3d2d7e7"
-#   instance_type = "t2.micro"
-#   key_name = "TEST"
-#   # key_name = aws_key_pair.TEST.key_name
-#   subnet_id = aws_subnet.pub_sub1.id
+resource "aws_instance" "app_server" {
+  ami           = "ami-0eb218869d3d2d7e7"
+  instance_type = "t2.micro"
+  key_name = "TEST"
+  # key_name = aws_key_pair.TEST.key_name
+  subnet_id = aws_subnet.pub_sub1.id
 
-#   tags = {
-#     Name = "Test Instance"
-#   }
-# }
+  tags = {
+    Name = "Test Instance"
+  }
+}
 
 # # resource "aws_key_pair" "TEST" {
 # #   key_name = "TEST1"
