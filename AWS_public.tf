@@ -14,7 +14,7 @@ resource "aws_route_table" "pub_route_table" {
     gateway_id = aws_internet_gateway.igw.id
   }
   tags = {
-    Name = "Public Route Table"
+    Name = "VPC TEST Public Route Table"
   }
 }
 
