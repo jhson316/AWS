@@ -20,9 +20,10 @@ provider "aws" {
 #   instance_type = "t2.micro"
 #   key_name = "TEST"
 #   # key_name = aws_key_pair.TEST.key_name
+#   subnet_id = aws_subnet.pub_sub1.id
 
 #   tags = {
-#     Name = "ExampleAppServerInstance"
+#     Name = "Test Instance"
 #   }
 # }
 

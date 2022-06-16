@@ -63,3 +63,34 @@ resource "aws_default_security_group" "default_sg" {
         Description = "default security group"
     }
 }
+
+# 
+resource "aws_security_group" "inhouse_sg" {
+    name        = "pinhouse_sg"
+    description = "security group for inhouse"
+    vpc_id      = aws_vpc.VPC_test.id
+
+    ingress {
+        description = "For Inhouse ingress"
+        from_port   = 0
+        to_port     = 65535
+        protocol    = "tcp"
+        cidr_blocks = [
+            aws_vpc.VPC_test.cidr_block,
+            # 자신의 IP 실제로는, 회사 VPN 대역을 넣어주면 된다.
+            "1.217.140.27/32",
+            "58.123.58.231/32"
+        ]
+    }
+
+    egress {
+        protocol    = "-1"
+        from_port   = 0
+        to_port     = 0
+        cidr_blocks = ["0.0.0.0/0"]
+    }
+
+    tags = {
+        Name = "inhouse_sg"
+    }
+}
