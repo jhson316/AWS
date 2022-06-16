@@ -1,6 +1,7 @@
 # VPC 생성
 resource "aws_vpc" "VPC_test" {
   cidr_block = "193.17.0.0/16"
+  enable_dns_hostnames = true
 
   tags = {
     Name = "VPC Test"
